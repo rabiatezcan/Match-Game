@@ -3,27 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameEnums
-{ 
-    public enum GameState
+{
+    public enum NavigationBarItems
     {
-        Loading, 
-        Main,
-        Game,
-        End
+        Shop, 
+        Home,
+        Setting
     }
-
-    public enum LevelEditorTypes
-    {
-        Info,
-        Create, 
-    }
-    public enum LevelObjects
-    {
-        Ball,
-        Platform,
-        CheckPoint,
-        LevelEnd, 
-        WingTrigger
-    }  
-    
 }
