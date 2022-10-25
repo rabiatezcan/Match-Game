@@ -47,6 +47,12 @@ public class PlayerHelper
         _playerData.Level += amount;
 
         Save();
+    }  
+    public void UpdateCoin(int amount)
+    {
+        _playerData.Coin += amount;
+
+        Save();
     }
     
 }

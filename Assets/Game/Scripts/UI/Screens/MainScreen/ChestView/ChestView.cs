@@ -8,12 +8,10 @@ public class ChestView : MonoBehaviour
 {
     [SerializeField] private Button _chestButton;
     [SerializeField] private Transform _chestIconTransform;
-
-    private bool _isButtonActive;
+    [SerializeField] private Transform _treasureTransform;
     public void Show()
     {
         SetButtonActivation();
-        SetButtonInteractable();
         ChestAnimation();
     }
 
@@ -24,30 +22,40 @@ public class ChestView : MonoBehaviour
 
     public void GiveTreasure()
     {
-
+        DOTween.KillAll();
+        SetButtonInteractable(false);
+        TreasureAnimation();
+        PlayerHelper.Instance.UpdateCoin(CONSTANTS.TREASURE_COIN_AMOUNT);
     }
 
     private void SetButtonActivation()
     {
         if (PlayerHelper.Instance.Player.Level % 3 == 0)
-            _isButtonActive = true;
+            SetButtonInteractable(true);
         else
-            _isButtonActive = false;
+            SetButtonInteractable(false);
     }
 
-    private void SetButtonInteractable()
+    private void SetButtonInteractable(bool isActive)
     {
-        _chestButton.interactable = _isButtonActive;
+        _chestButton.interactable = isActive;
     }
     
     private void ChestAnimation()
     {
-        if (!_isButtonActive)
+        if (!_chestButton.IsInteractable())
             return;
 
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(_chestIconTransform.DOScale(1.2f, .2f))
-                .Append(_chestIconTransform.DOScale(1f, .2f))
+        sequence.Append(_chestIconTransform.DOScale(1.2f, .3f))
+                .Append(_chestIconTransform.DOScale(1f, .3f))
                 .SetLoops(-1);
+    }
+
+    private void TreasureAnimation()
+    {
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(_treasureTransform.DOScale(1f, .2f))
+                .Append(_treasureTransform.DOScale(0f, .4f).SetDelay(.5f));
     }
 }
