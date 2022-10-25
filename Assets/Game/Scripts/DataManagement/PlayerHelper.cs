@@ -54,5 +54,18 @@ public class PlayerHelper
 
         Save();
     }
+
+    public void UpdateSound(bool isActive)
+    {
+        _playerData.IsSoundOn = isActive;
+
+        Save();
+    }
+    public void UpdateVibration(bool isActive)
+    {
+        _playerData.IsVibrationOn = isActive;
+
+        Save();
+    }
     
 }

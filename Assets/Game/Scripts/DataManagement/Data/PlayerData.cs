@@ -8,12 +8,16 @@ public class PlayerData
 {
     public int Level { get; set; }
     public int Coin { get; set; }
+    public bool IsSoundOn { get; set; }
+    public bool IsVibrationOn { get; set; }
 
 
     public void Build()
     {
         Level = 1;
         Coin = 0;
+        IsSoundOn = true;
+        IsVibrationOn = true;
     }
 
 
