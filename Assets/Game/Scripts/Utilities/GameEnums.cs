@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class GameEnums
 {
+    public enum TriggerBehaviour
+    {
+        OnTriggerEnter,
+        OnTriggerExit, 
+        Both
+    }
+
     public enum NavigationBarItems
     {
         Shop, 
