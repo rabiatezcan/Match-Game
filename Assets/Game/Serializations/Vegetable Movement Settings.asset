@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minX: -6.7
   _maxX: 6.7
-  _minY: -8.5
-  _maxY: 13
+  _minY: -11
+  _maxY: 10

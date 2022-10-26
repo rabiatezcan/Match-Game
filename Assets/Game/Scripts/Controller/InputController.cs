@@ -45,7 +45,7 @@ public class InputController : Controller
         _inputHandler.OnMouseButtonUp -= Drop;
     }
 
-    public void Select(Vector3 inputPos)
+    public void Select(GameEnums.ClickType clickType)
     {
         RaycastHit hit;
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -56,7 +56,7 @@ public class InputController : Controller
             {
                 _currentObject = hit.transform.GetComponentInParent<ISelectableObject>();
 
-                _currentObject.Select(inputPos);
+                _currentObject.Select(clickType);
             }
         }
     }

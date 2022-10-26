@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class InputHandler
 {
-    public Action<Vector3> OnMouseButtonDown;
+    public Action<GameEnums.ClickType> OnMouseButtonDown;
     public Action<Vector3> OnMouseButton;
     public Action OnMouseButtonUp;
 
     private Plane plane;
+    private float lastClickTime;
+
     public InputHandler()
     {
         plane = new Plane(Vector3.up, Vector3.zero);
@@ -23,7 +25,14 @@ public class InputHandler
     {
         if (Input.GetMouseButtonDown(0))
         {
-            OnMouseButtonDown?.Invoke(GetMousePosition());
+            float timeSinceLastClick = Time.time - lastClickTime;
+
+            if (timeSinceLastClick < CONSTANTS.DOUBLE_CLICK_TIME)
+                OnMouseButtonDown?.Invoke(GameEnums.ClickType.Double);
+            else
+                OnMouseButtonDown?.Invoke(GameEnums.ClickType.Single);
+
+            lastClickTime = Time.time;
         }
 
         if (Input.GetMouseButton(0))

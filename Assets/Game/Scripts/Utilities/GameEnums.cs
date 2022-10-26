@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GameEnums
 {
+    public enum ClickType
+    {
+        Single, 
+        Double
+    }
     public enum TriggerBehaviour
     {
         OnTriggerEnter,

@@ -5,6 +5,11 @@ using UnityEngine;
 public class CONSTANTS 
 {
     public const float LOADING_DURATION = 1f;
+    public const float DOUBLE_CLICK_TIME = .2f;
+    public const float PAN_MIN_X_AXIS_POSITION = -2f;
+    public const float PAN_MAX_X_AXIS_POSITION = 2f;
+    public const float PAN_MIN_Z_AXIS_POSITION = -10.85f;
+    public const float PAN_MAX_Z_AXIS_POSITION = -9f;
 
     public const int POOL_INCREMENT_AMOUNT = 3;
     public const int TREASURE_COIN_AMOUNT = 15;
