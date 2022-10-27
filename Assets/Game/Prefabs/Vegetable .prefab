@@ -6195,7 +6195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed4636ee18b93d43936f0f43907e583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSetting: {fileID: 11400000, guid: 2b39239f82f9eaf49b7afb05534a04f4, type: 2}
+  _clampSetting: {fileID: 11400000, guid: 2b39239f82f9eaf49b7afb05534a04f4, type: 2}
+  _body: {fileID: 5296014682383788115}
 --- !u!1 &5296014682325156611
 GameObject:
   m_ObjectHideFlags: 0
@@ -6325,6 +6326,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100c8d4e534213d44acc9d1dfbad87f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bodies:
+  - {fileID: 7861402382527505236}
+  - {fileID: 5239983815926842375}
+  - {fileID: 2774286621170945021}
+  - {fileID: 5564638511025535483}
+  - {fileID: 6830434955360363952}
+  - {fileID: 9166302270117300853}
+  - {fileID: 1914149388306266170}
+  - {fileID: 8227665925378369520}
+  - {fileID: 5366868107904736278}
+  - {fileID: 8768970333483878747}
+  - {fileID: 1743068083995016866}
+  - {fileID: 3593609062548175853}
+  - {fileID: 8477728989068354510}
+  - {fileID: 4935728008811433858}
+  - {fileID: 5264674977462304504}
+  - {fileID: 6239076130419250418}
+  - {fileID: 3317750403789289630}
+  - {fileID: 1797459977378983255}
+  - {fileID: 8191500966482457105}
+  - {fileID: 4068217628381905067}
+  - {fileID: 4222068999211978244}
+  - {fileID: 7915372136461418835}
+  - {fileID: 5740278431772450646}
+  - {fileID: 5718017843890220352}
+  - {fileID: 7328136116659444171}
 --- !u!1 &5525492016313642759
 GameObject:
   m_ObjectHideFlags: 0
