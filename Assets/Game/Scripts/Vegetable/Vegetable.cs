@@ -4,11 +4,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vegetable : MonoBehaviour, ISelectableObject
+public class Vegetable : PoolObject, ISelectableObject
 {
-    [SerializeField] private MovementSettings _movementSetting;
+    [SerializeField] private ObjectClampSettings _clampSetting;
+    [SerializeField] private VegetableBody _body;
 
     private GameEnums.ClickType _currentClickType;
+    private GameEnums.VegetableType _bodyType;
     private bool _onPanArea;
 
     public bool OnPanArea 
@@ -16,6 +18,14 @@ public class Vegetable : MonoBehaviour, ISelectableObject
         get => _onPanArea; 
         set => _onPanArea = value;
     }
+
+    #region Core
+    public void Initialize(GameEnums.VegetableType type)
+    {
+        _bodyType = type;
+        _body.Initialize(type);
+    }
+    #endregion
 
     #region ISelectable
     public void Select(GameEnums.ClickType clickType)
@@ -31,9 +41,9 @@ public class Vegetable : MonoBehaviour, ISelectableObject
         if (_currentClickType == GameEnums.ClickType.Double)
             return;
 
-        inputPos.x = Mathf.Clamp(inputPos.x, _movementSetting.MinX, _movementSetting.MaxX);
+        inputPos.x = Mathf.Clamp(inputPos.x, _clampSetting.MinX, _clampSetting.MaxX);
         inputPos.z -= .63f;
-        inputPos.z = Mathf.Clamp(inputPos.z, _movementSetting.MinY, _movementSetting.MaxY);
+        inputPos.z = Mathf.Clamp(inputPos.z, _clampSetting.MinZ, _clampSetting.MaxZ);
         inputPos.y = 0f;
         transform.position = inputPos;
     }

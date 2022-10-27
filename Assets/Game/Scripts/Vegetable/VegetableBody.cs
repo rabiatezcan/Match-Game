@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class VegetableBody : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private List<Transform> _bodies;
+
+    public void Initialize(GameEnums.VegetableType type)
     {
-        
+
+        SetBody(type);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SetBody(GameEnums.VegetableType type)
     {
-        
+
+        HideAll();
+        _bodies[((int)type)].gameObject.SetActive(true);
+    }
+
+    private void HideAll()
+    {
+        _bodies.ForEach(body => body.gameObject.SetActive(false));
+
     }
 }
