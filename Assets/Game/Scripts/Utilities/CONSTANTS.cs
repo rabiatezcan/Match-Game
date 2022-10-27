@@ -13,6 +13,9 @@ public class CONSTANTS
 
     public const int POOL_INCREMENT_AMOUNT = 3;
     public const int TREASURE_COIN_AMOUNT = 15;
+    public const int RECIPE_VEGETABLE_COUNT = 3;
+    public const int VEGETABLE_COUNT = 25;
+    public const int RECIPE_COUNT = 3;
 
     public const string PLAYER_DATA_FOLDER_PATH = "Assets/Resources/PlayerData";
 }

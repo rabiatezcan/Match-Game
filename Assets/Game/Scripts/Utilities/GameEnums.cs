@@ -10,6 +10,13 @@ public class GameEnums
         Double
     }
 
+    public enum RecipeType
+    {
+        Soup, 
+        Spaghetti, 
+        Salad
+    }
+
     public enum VegetableType
     {
         Beet,

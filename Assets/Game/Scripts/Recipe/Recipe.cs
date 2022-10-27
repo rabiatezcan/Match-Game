@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Recipe
 {
+    private GameEnums.RecipeType _recipeName;
     private Dictionary<GameEnums.VegetableType, int> _recipe = new Dictionary<GameEnums.VegetableType, int>();
+
+    public Dictionary<GameEnums.VegetableType, int> RecipeObject => _recipe;
+    public GameEnums.RecipeType RecipeName => _recipeName;
 
     public Recipe()
     {
+        SetRecipeName();
         GenerateRandomRecipe();
     }
 
-    public Dictionary<GameEnums.VegetableType, int> RecipeObject => _recipe;
-
+    private void SetRecipeName()
+    {
+        _recipeName = (GameEnums.RecipeType)Random.Range(0, CONSTANTS.RECIPE_COUNT);
+    }
     private void GenerateRandomRecipe()
     {
         for (int i = 0; i < CONSTANTS.RECIPE_VEGETABLE_COUNT; i++)

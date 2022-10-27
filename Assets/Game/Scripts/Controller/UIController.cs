@@ -6,10 +6,12 @@ public class UIController : Controller
 {
     [SerializeField] List<Screen> _screens;
 
+    private LevelController _levelController;
     #region States
     public override void Initialize(GameManager gameManager)
     {
         ShowMainScreen();
+        _levelController = gameManager.LevelController;
        
     } 
     public override void StartGame()
@@ -50,6 +52,7 @@ public class UIController : Controller
     {
         HideAll();
         _screens[2].Show();
+        _screens[2].GetComponent<GameScreen>().Initialize(_levelController);
     }    
     public void ShowEndScreen()
     {
