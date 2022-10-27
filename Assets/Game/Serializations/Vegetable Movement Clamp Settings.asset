@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 330f84d232d0d524ca6eac6fbe43d832, type: 3}
-  m_Name: Vegetable Movement Settings
+  m_Name: Vegetable Movement Clamp Settings
   m_EditorClassIdentifier: 
   _minX: -6.7
   _maxX: 6.7
-  _minY: -11
-  _maxY: 10
+  _minY: 0
+  _maxY: 0
+  _minZ: -11
+  _maxZ: 10
