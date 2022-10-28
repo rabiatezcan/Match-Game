@@ -39,7 +39,7 @@ public class Level : MonoBehaviour
     {
         for (int i = 0; i < CONSTANTS.VEGETABLE_COUNT; i++)
         {
-            for (int j = 0; j < 1; j++)
+            for (int j = 0; j < 5; j++)
             {
                 Vegetable vegetable = PoolHandler.Instance.GetItemFromPool("Vegetable") as Vegetable;
                 vegetable.Initialize((GameEnums.VegetableType)i);
