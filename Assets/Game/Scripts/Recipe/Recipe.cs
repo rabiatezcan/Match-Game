@@ -7,7 +7,7 @@ public class Recipe
     private GameEnums.RecipeType _recipeName;
     private Dictionary<GameEnums.VegetableType, int> _recipe = new Dictionary<GameEnums.VegetableType, int>();
 
-    public Dictionary<GameEnums.VegetableType, int> RecipeObject => _recipe;
+    public Dictionary<GameEnums.VegetableType, int> RecipeList => _recipe;
     public GameEnums.RecipeType RecipeName => _recipeName;
 
     public Recipe()

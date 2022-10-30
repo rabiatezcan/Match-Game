@@ -10,22 +10,24 @@ public class RecipeView : MonoBehaviour
     [SerializeField] private List<RecipeItem> _recipeItems;
     [SerializeField] private Text _recipeName;
 
-    public void Initialize(Recipe recipe)
-    {
-        InitializeRecipeItems(recipe);
-        SetRecipeName(recipe);
-    }
+    private Recipe _currentRecipe;
 
-    private void SetRecipeName(Recipe recipe)
+    public void SetRecipe(Recipe recipe)
     {
-        _recipeName.text = recipe.RecipeName.ToString();
+        _currentRecipe = recipe;
+        InitializeRecipeItems();
+        SetRecipeName();
     }
-    private void InitializeRecipeItems(Recipe recipe)
+    private void SetRecipeName()
+    {
+        _recipeName.text = _currentRecipe.RecipeName.ToString();
+    }
+    private void InitializeRecipeItems()
     {
         for (int i = 0; i < _recipeItems.Count; i++)
         {
-            Sprite sprite = _sprites[((int)recipe.RecipeObject.ElementAt(i).Key)];
-            int amount = recipe.RecipeObject.ElementAt(i).Value;
+            Sprite sprite = _sprites[((int)_currentRecipe.RecipeList.ElementAt(i).Key)];
+            int amount = _currentRecipe.RecipeList.ElementAt(i).Value;
 
             _recipeItems[i].Initialize(sprite, amount);
         }

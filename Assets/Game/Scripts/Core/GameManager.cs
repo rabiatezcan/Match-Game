@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public LevelController LevelController => _controllers[2].GetComponent<LevelController>();
+    public LevelController LevelController => _controllers[0].GetComponent<LevelController>();
 
     #region Init
     private void Awake()

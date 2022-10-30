@@ -51,8 +51,8 @@ public class UIController : Controller
     public void ShowGameScreen()
     {
         HideAll();
-        _screens[2].Show();
         _screens[2].GetComponent<GameScreen>().Initialize(_levelController);
+        _screens[2].Show();
     }    
     public void ShowEndScreen()
     {
