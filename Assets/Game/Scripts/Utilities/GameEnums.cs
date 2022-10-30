@@ -32,15 +32,13 @@ public class GameEnums
         Lemon, 
         Mushroom, 
         Onion,
-        Peas,
         Potato, 
         Pumpkin, 
-        Radish,
         RedChili, 
         RedPaprika,
         Spinach,
+        Squash,
         Tomato, 
-        WhiteOnion,
         YellowChili, 
         YellowPaprika
     }
