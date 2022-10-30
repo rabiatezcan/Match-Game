@@ -12,17 +12,27 @@ public class Vegetable : PoolObject, ISelectableObject
     private GameEnums.ClickType _currentClickType;
     private GameEnums.VegetableType _bodyType;
     private bool _onPanArea;
-
-    public bool OnPanArea 
+    private bool _isRecipeElement;
+    public bool OnPanArea
     {
-        get => _onPanArea; 
+        get => _onPanArea;
         set => _onPanArea = value;
     }
+    public bool IsRecipeElement
+    {
+        get => _isRecipeElement;
+        set => _isRecipeElement = value;
+    }
+    public GameEnums.VegetableType BodyType 
+    {
+        get => _bodyType; 
+        set => _bodyType = value; }
 
     #region Core
-    public void Initialize(GameEnums.VegetableType type)
+    public void Initialize(GameEnums.VegetableType type, bool isRecipeElement)
     {
         _bodyType = type;
+        _isRecipeElement = isRecipeElement;
         _body.Initialize(type);
     }
     #endregion
@@ -33,7 +43,7 @@ public class Vegetable : PoolObject, ISelectableObject
         _currentClickType = clickType;
 
         if (_currentClickType == GameEnums.ClickType.Double)
-            JumpAnimation(PanRandomPositionHelper.GetRandomPosition());
+            JumpAnimation(PanRandomPositionHelper.GetRandomPosition(), Ease.OutCubic);
     }
 
     public void Drag(Vector3 inputPos)
@@ -51,12 +61,24 @@ public class Vegetable : PoolObject, ISelectableObject
     public void Drop()
     {
         if (OnPanArea)
-            JumpAnimation(Vector3.zero);
+            JumpAnimation(Vector3.zero, Ease.InOutBack);
     }
     #endregion
 
-    private void JumpAnimation(Vector3 jumpPos)
+    private void JumpAnimation(Vector3 jumpPos, Ease ease)
     {
-        transform.DOJump(jumpPos, 15f, 1, .5f).SetEase(Ease.OutCubic);
+        transform.DOJump(jumpPos, 15f, 1, .5f).SetEase(ease)
+                 .OnComplete(() => Check());
+    }
+
+    private void Check()
+    {
+        if (OnPanArea)
+        {
+            if (!IsRecipeElement)
+                JumpAnimation(Vector3.zero, Ease.InOutBack);
+            else
+                RecipeCompleteCheckHelper.CheckRecipe(this);
+        }
     }
 }
