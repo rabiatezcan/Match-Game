@@ -27,6 +27,7 @@ public class LevelController : Controller
 
     public override void GameSuccess()
     {
+        Reload();
     }
     #endregion
 
