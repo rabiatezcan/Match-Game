@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     public void GameSuccess()
     {
         _controllers.ForEach(controller => controller.GameSuccess());
-
+        PlayerHelper.Instance.UpdateLevel(1);
         GameOver();
     }
     public void GameFail()
