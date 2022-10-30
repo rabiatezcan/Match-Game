@@ -24,12 +24,12 @@ public class UIController : Controller
     }
     public override void GameFail()
     {
-        ShowEndScreen();
+        ShowLoseScreen();
     }
 
     public override void GameSuccess()
     {
-        ShowEndScreen();
+        ShowWinScreen();
     }
     #endregion
 
@@ -54,10 +54,17 @@ public class UIController : Controller
         _screens[2].GetComponent<GameScreen>().Initialize(_levelController);
         _screens[2].Show();
     }    
-    public void ShowEndScreen()
+    public void ShowWinScreen()
     {
         HideAll();
         _screens[3].Show();
+        _screens[3].GetComponent<EndScreen>().ShowWinPage();
+    }   
+    public void ShowLoseScreen()
+    {
+        HideAll();
+        _screens[3].Show();
+        _screens[3].GetComponent<EndScreen>().ShowLosePage();
     }
 
 }
