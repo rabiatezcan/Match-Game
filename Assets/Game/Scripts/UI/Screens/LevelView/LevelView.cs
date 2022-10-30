@@ -7,12 +7,7 @@ public class LevelView : MonoBehaviour
 {
     [SerializeField] private Text _levelTxt; 
 
-    public void Show()
-    {
-        SetLevelText();
-    }
-
-    private void SetLevelText()
+    public void SetLevelText()
     {
         _levelTxt.text = "Level " + PlayerHelper.Instance.Player.Level;
     }

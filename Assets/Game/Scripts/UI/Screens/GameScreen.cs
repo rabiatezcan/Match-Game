@@ -20,6 +20,8 @@ public class GameScreen : Screen
     {
         base.Show();
         _levelController.CurrentLevel.OnRecipeChanged += UpdateRecipeView;
+        _levelView.SetLevelText();
+        _coinView.SetCoinText();
     }
 
     public override void Hide()

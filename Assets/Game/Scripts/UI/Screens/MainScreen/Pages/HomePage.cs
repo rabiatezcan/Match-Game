@@ -11,7 +11,7 @@ public class HomePage : Page
     {
         base.Show();
         _chestView.Show();
-        _levelView.Show();
+        _levelView.SetLevelText();
     }
 
 }
