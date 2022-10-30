@@ -68,10 +68,10 @@ public class Vegetable : PoolObject, ISelectableObject
     private void JumpAnimation(Vector3 jumpPos, Ease ease)
     {
         transform.DOJump(jumpPos, 15f, 1, .5f).SetEase(ease)
-                 .OnComplete(() => Check());
+                 .OnComplete(() => CheckPlacement());
     }
 
-    private void Check()
+    private void CheckPlacement()
     {
         if (OnPanArea)
         {
