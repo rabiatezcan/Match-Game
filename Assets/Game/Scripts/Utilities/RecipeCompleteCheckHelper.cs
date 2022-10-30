@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public static class RecipeCompleteCheckHelper 
+public static class RecipeCompleteCheckHelper
 {
     private static LevelController _levelController;
     private static Recipe _currentRecipe;
@@ -20,7 +20,8 @@ public static class RecipeCompleteCheckHelper
 
     public static void CheckRecipe(Vegetable vegetable)
     {
-        AddVegetable(vegetable);
+        if (_recipeVegetables[vegetable.BodyType] < _currentRecipe.RecipeList[vegetable.BodyType])
+            AddVegetable(vegetable);
 
         if (IsRecipeCompleted())
             _levelController.CurrentLevel.ChangeRecipe();
@@ -61,6 +62,6 @@ public static class RecipeCompleteCheckHelper
         }
     }
 
-   
+
 
 }
