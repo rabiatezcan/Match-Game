@@ -7,6 +7,7 @@ public class CoinImage : MonoBehaviour
     private Vector3 _startPos;
     private Vector3 _middlePos;
     private Vector3 _targetPos;
+    private Vector3 _defaultPos;
     private float _time;
     private bool _canMove;
 
@@ -14,11 +15,13 @@ public class CoinImage : MonoBehaviour
     public void SetActive()
     {
         gameObject.SetActive(true);
+        _defaultPos = transform.localPosition;
     }
     public void Hide()
     {
         _canMove = false;
         gameObject.SetActive(false);
+        transform.localPosition = _defaultPos;
     }
 
     public void SetMovePosition(Vector3 newPos)
