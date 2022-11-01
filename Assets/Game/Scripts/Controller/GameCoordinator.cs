@@ -20,6 +20,7 @@ public class GameCoordinator : Controller
 
     public override void StartGame()
     {
+        ScoreSystem.Reload();
         _timeHandler.StartGame();   
     }
     public override void GameFail()

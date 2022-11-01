@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,6 +6,7 @@ using UnityEngine;
 
 public static class RecipeCompleteCheckHelper
 {
+    public static Action OnRecipeCompleted;
     private static LevelController _levelController;
     private static Recipe _currentRecipe;
     private static Dictionary<GameEnums.VegetableType, int> _recipeVegetables = new Dictionary<GameEnums.VegetableType, int>();
@@ -24,7 +26,10 @@ public static class RecipeCompleteCheckHelper
             AddVegetable(vegetable);
 
         if (IsRecipeCompleted())
+        {
             _levelController.CurrentLevel.ChangeRecipe();
+            OnRecipeCompleted?.Invoke();
+        }
     }
 
     private static void UpdateRecipe()

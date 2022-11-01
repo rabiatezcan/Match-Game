@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class CoinView : MonoBehaviour
 {
-    [SerializeField] private Text _coinText;
-    public void SetCoinText()
+    [SerializeField] protected Text _coinText;
+    public virtual void SetCoinText()
     {
         _coinText.text = PlayerHelper.Instance.Player.Coin.ToString();
     }

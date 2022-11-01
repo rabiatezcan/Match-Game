@@ -16,6 +16,7 @@ public class CONSTANTS
     public const int RECIPE_VEGETABLE_COUNT = 3;
     public const int VEGETABLE_COUNT = 22;
     public const int RECIPE_COUNT = 3;
+    public const int SCORE_PER_COMPLETED_RECIPE = 10;
 
     public const string PLAYER_DATA_FOLDER_PATH = "Assets/Resources/PlayerData";
 }

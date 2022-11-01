@@ -50,7 +50,7 @@ public class PlayerHelper
     }  
     public void UpdateCoin(int amount)
     {
-        _playerData.Coin += amount;
+        _playerData.Coin = amount;
 
         Save();
     }
