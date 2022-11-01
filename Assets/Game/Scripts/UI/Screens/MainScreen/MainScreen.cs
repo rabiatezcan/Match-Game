@@ -10,18 +10,29 @@ public class MainScreen : Screen
 
     public override void Show()
     {
-        SetActivePage(((int)GameEnums.NavigationBarItems.Home));
+        SetActivePage(GameEnums.NavigationBarItems.Home);
         base.Show();
     }
-
-    public void SetActivePage(int item)
+    public void SetActiveHomePage()
+    {
+        SetActivePage(GameEnums.NavigationBarItems.Home);
+    }
+    public void SetActiveSettingPage()
+    {
+        SetActivePage(GameEnums.NavigationBarItems.Setting);
+    }
+    public void SetActiveShopPage()
+    {
+        SetActivePage(GameEnums.NavigationBarItems.Shop);
+    }
+    private void SetActivePage(GameEnums.NavigationBarItems item)
     {
         HideAllPages();
         ShowPage(item);
         _bar.SetActivePageButtonColor(item);
     }
 
-    private void ShowPage(int item)
+    private void ShowPage(GameEnums.NavigationBarItems item)
     {
         _pages[((int)item)].Show();
     }
