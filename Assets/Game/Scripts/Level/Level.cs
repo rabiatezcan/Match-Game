@@ -10,8 +10,12 @@ using Random = UnityEngine.Random;
 public class Level : MonoBehaviour
 {
     public Action OnRecipeChanged;
+
     [SerializeField] private ObjectClampSettings _vegetableSpawnSetting;
     [SerializeField] private float _levelTimeForSecond;
+    [SerializeField] private int _minCountPerVegetableType;
+    [SerializeField] private int _maxCountPerVegetableType;
+
     private List<Vegetable> _levelObjects = new List<Vegetable>();
     private Recipe[] _recipes = new Recipe[2];
     private Recipe _currentRecipe;
@@ -30,7 +34,7 @@ public class Level : MonoBehaviour
     }
     public void Remove()
     {
-        //_levelObjects.ForEach(obj => obj.Dismiss());
+        _levelObjects.ForEach(obj => obj.Dismiss());
         _levelObjects.Clear();
     }
 
@@ -52,6 +56,7 @@ public class Level : MonoBehaviour
         for (int i = 0; i < _recipes.Length; i++)
         {
             _recipes[i] = new Recipe();
+            _recipes[i].Initialize(_minCountPerVegetableType, _maxCountPerVegetableType);
         }
 
         _currentRecipe = _recipes[_currentRecipeIndex];
@@ -61,7 +66,7 @@ public class Level : MonoBehaviour
     {
         for (int i = 0; i < CONSTANTS.VEGETABLE_COUNT; i++)
         {
-            for (int j = 0; j < 10; j++)
+            for (int j = 0; j < (_maxCountPerVegetableType * 2); j++)
             {
                 bool isRecipeElement = _currentRecipe.RecipeList.ContainsKey((GameEnums.VegetableType)i);
 

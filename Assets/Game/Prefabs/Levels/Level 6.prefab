@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4652813462707666564}
   - component: {fileID: 2254616411382516432}
   m_Layer: 0
-  m_Name: Level
+  m_Name: Level 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vegetableSpawnSetting: {fileID: 11400000, guid: 7b98d0dd00a37884993e6facddb9775a, type: 2}
-  _levelTimeForSecond: 120
+  _levelTimeForSecond: 80
+  _minCountPerVegetableType: 1
+  _maxCountPerVegetableType: 4
