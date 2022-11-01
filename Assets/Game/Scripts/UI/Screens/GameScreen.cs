@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameScreen : Screen
 {
     [SerializeField] private LevelView _levelView;
-    [SerializeField] private CoinView _coinView;
+    [SerializeField] private GameplayCoinView _coinView;
     [SerializeField] private TimeView _timeView;
     [SerializeField] private RecipeView _recipeView;
 
@@ -14,12 +14,15 @@ public class GameScreen : Screen
     {
         _levelController = levelController;
         UpdateRecipeView();
+        _coinView.Initialize();
     }
 
     public override void Show()
     {
         base.Show();
         _levelController.CurrentLevel.OnRecipeChanged += UpdateRecipeView;
+        ScoreSystem.OnScoreAdded += _coinView.CoinAnimation;
+        _timeView.Show();
         _levelView.SetLevelText();
         _coinView.SetCoinText();
     }
@@ -27,7 +30,11 @@ public class GameScreen : Screen
     public override void Hide()
     {
         if (_levelController != null)
+        {
             _levelController.CurrentLevel.OnRecipeChanged -= UpdateRecipeView;
+            ScoreSystem.OnScoreAdded += _coinView.CoinAnimation;
+            _timeView.Hide();
+        }
         base.Hide();
     }
 

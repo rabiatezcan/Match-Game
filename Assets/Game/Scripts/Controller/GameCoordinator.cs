@@ -5,9 +5,12 @@ using UnityEngine;
 public class GameCoordinator : Controller
 {
     [SerializeField] private Pan _pan;
+    [SerializeField] private TimeHandler _timeHandler;
+
     #region Core
     public override void Initialize(GameManager gameManager)
     {
+        _timeHandler.Initialize(gameManager.LevelController);
         RecipeCompleteCheckHelper.Initialize(gameManager.LevelController);
     }
 
@@ -17,13 +20,16 @@ public class GameCoordinator : Controller
 
     public override void StartGame()
     {
+        _timeHandler.StartGame();   
     }
     public override void GameFail()
     {
+        _timeHandler.GameOver();
     }
 
     public override void GameSuccess()
     {
+        _timeHandler.GameOver();
     }
 
     #endregion

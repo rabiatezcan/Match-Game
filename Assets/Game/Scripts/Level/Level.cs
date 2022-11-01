@@ -11,6 +11,7 @@ public class Level : MonoBehaviour
 {
     public Action OnRecipeChanged;
     [SerializeField] private ObjectClampSettings _vegetableSpawnSetting;
+    [SerializeField] private float _levelTimeForSecond;
     private List<Vegetable> _levelObjects = new List<Vegetable>();
     private Recipe[] _recipes = new Recipe[2];
     private Recipe _currentRecipe;
@@ -19,7 +20,7 @@ public class Level : MonoBehaviour
     {
         get => _currentRecipe;
     }
-
+    public float LevelTimeForSecond => _levelTimeForSecond;
 
     public void Build()
     {
