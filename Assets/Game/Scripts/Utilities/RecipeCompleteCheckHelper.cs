@@ -29,7 +29,6 @@ public static class RecipeCompleteCheckHelper
 
         if (IsRecipeCompleted())
         {
-            _levelController.CurrentLevel.ChangeRecipe();
             OnRecipeCompleted?.Invoke();
         }
     }
