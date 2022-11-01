@@ -13,14 +13,14 @@ public class GameScreen : Screen
     public void Initialize(LevelController levelController)
     {
         _levelController = levelController;
-        UpdateRecipeView();
+        _recipeView.SetRecipe(_levelController.CurrentLevel.CurrentRecipe);
         _coinView.Initialize();
     }
 
     public override void Show()
     {
         base.Show();
-        _coinView.OnCoinAnimationCompleted += UpdateRecipeView;
+        _coinView.OnCoinAnimationCompleted += UpdateRecipe;
         RecipeCompleteCheckHelper.OnRecipeCompleted += _coinView.CoinAnimation;
         ScoreSystem.OnScoreAdded += _coinView.SetCoinText;
         _timeView.Show();
@@ -32,7 +32,7 @@ public class GameScreen : Screen
     {
         if (_levelController != null)
         {
-            _coinView.OnCoinAnimationCompleted -= UpdateRecipeView;
+            _coinView.OnCoinAnimationCompleted -= UpdateRecipe;
             RecipeCompleteCheckHelper.OnRecipeCompleted -= _coinView.CoinAnimation;
             ScoreSystem.OnScoreAdded -= _coinView.SetCoinText;
             _timeView.Hide();
@@ -40,8 +40,10 @@ public class GameScreen : Screen
         base.Hide();
     }
 
-    private void UpdateRecipeView()
+    private void UpdateRecipe()
     {
+        _levelController.CurrentLevel.ChangeRecipe();
+        
         _recipeView.SetRecipe(_levelController.CurrentLevel.CurrentRecipe);
     }
 }
