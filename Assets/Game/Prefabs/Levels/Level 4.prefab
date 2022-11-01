@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vegetableSpawnSetting: {fileID: 11400000, guid: 7b98d0dd00a37884993e6facddb9775a, type: 2}
-  _levelTimeForSecond: 60
+  _levelTimeForSecond: 70
   _minCountPerVegetableType: 1
   _maxCountPerVegetableType: 3
