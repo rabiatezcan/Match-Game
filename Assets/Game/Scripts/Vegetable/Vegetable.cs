@@ -11,6 +11,7 @@ public class Vegetable : PoolObject, ISelectableObject
 
     private GameEnums.ClickType _currentClickType;
     private GameEnums.VegetableType _bodyType;
+    private bool _canMove;
     private bool _onPanArea;
     private bool _isRecipeElement;
     public bool OnPanArea
@@ -23,14 +24,16 @@ public class Vegetable : PoolObject, ISelectableObject
         get => _isRecipeElement;
         set => _isRecipeElement = value;
     }
-    public GameEnums.VegetableType BodyType 
+    public GameEnums.VegetableType BodyType
     {
-        get => _bodyType; 
-        set => _bodyType = value; }
+        get => _bodyType;
+        set => _bodyType = value;
+    }
 
     #region Core
     public void Initialize(GameEnums.VegetableType type, bool isRecipeElement)
     {
+        _canMove = true;
         _bodyType = type;
         _isRecipeElement = isRecipeElement;
         _body.Initialize(type);
@@ -42,13 +45,13 @@ public class Vegetable : PoolObject, ISelectableObject
     {
         _currentClickType = clickType;
 
-        if (_currentClickType == GameEnums.ClickType.Double)
+        if (_currentClickType == GameEnums.ClickType.Double && _canMove)
             JumpAnimation(PanRandomPositionHelper.GetRandomPosition(), Ease.OutCubic);
     }
 
     public void Drag(Vector3 inputPos)
     {
-        if (_currentClickType == GameEnums.ClickType.Double)
+        if (_currentClickType == GameEnums.ClickType.Double || !_canMove)
             return;
 
         inputPos.x = Mathf.Clamp(inputPos.x, _clampSetting.MinX, _clampSetting.MaxX);
@@ -60,10 +63,15 @@ public class Vegetable : PoolObject, ISelectableObject
 
     public void Drop()
     {
-        if (OnPanArea)
+        if (OnPanArea && _canMove)
             JumpAnimation(Vector3.zero, Ease.InOutBack);
     }
     #endregion
+
+    public void Throw()
+    {
+        JumpAnimation(Vector3.zero, Ease.InOutBack);
+    }
 
     private void JumpAnimation(Vector3 jumpPos, Ease ease)
     {
@@ -78,7 +86,10 @@ public class Vegetable : PoolObject, ISelectableObject
             if (!IsRecipeElement)
                 JumpAnimation(Vector3.zero, Ease.InOutBack);
             else
+            {
                 RecipeCompleteCheckHelper.CheckRecipe(this);
+                _canMove = false;
+            }
         }
     }
 }

@@ -24,6 +24,8 @@ public static class RecipeCompleteCheckHelper
     {
         if (_recipeVegetables[vegetable.BodyType] < _currentRecipe.RecipeList[vegetable.BodyType])
             AddVegetable(vegetable);
+        else
+            vegetable.Throw();
 
         if (IsRecipeCompleted())
         {
