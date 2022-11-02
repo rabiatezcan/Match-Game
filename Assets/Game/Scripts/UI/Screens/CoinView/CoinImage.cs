@@ -34,7 +34,7 @@ public class CoinImage : MonoBehaviour
     {
         Sequence sequence = DOTween.Sequence();
         sequence.Append(transform.DOLocalMove(_middlePos, .25f))
-                .Insert(.2f, transform.DOMove(_targetPos, .45f))
+                .Insert(.1f, transform.DOMove(_targetPos, .45f))
                 .OnComplete
                 (() =>
                     {
