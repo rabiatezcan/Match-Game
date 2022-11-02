@@ -35,7 +35,7 @@ public class GameplayCoinView : CoinView
             _coinImages[index].SetMovePosition(_totalCoinImageTransform.position);
             index++;
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         OnCoinAnimationCompleted?.Invoke();
     }
 
