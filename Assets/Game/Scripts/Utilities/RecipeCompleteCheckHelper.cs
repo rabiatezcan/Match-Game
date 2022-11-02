@@ -20,6 +20,11 @@ public static class RecipeCompleteCheckHelper
         SetRecipeVegetables();
     }
 
+    public static void Reload()
+    {
+        UpdateRecipe();
+    }
+
     public static void CheckRecipe(Vegetable vegetable)
     {
         if (_recipeVegetables[vegetable.BodyType] < _currentRecipe.RecipeList[vegetable.BodyType])

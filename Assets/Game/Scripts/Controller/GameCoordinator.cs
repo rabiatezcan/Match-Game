@@ -21,6 +21,7 @@ public class GameCoordinator : Controller
     public override void StartGame()
     {
         ScoreSystem.Reload();
+        RecipeCompleteCheckHelper.Reload();
         _timeHandler.StartGame();   
     }
     public override void GameFail()
