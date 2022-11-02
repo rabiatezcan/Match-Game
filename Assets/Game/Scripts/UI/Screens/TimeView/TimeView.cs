@@ -33,6 +33,6 @@ public class TimeView : MonoBehaviour
     }
     private void SetTimeText()
     {
-        _timeTxt.text = _minute + " : " + _second;
+        _timeTxt.text = _minute.ToString("00") + " : " + _second.ToString("00");
     }
 }
