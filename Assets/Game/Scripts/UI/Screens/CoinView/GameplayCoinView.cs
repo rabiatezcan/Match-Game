@@ -31,11 +31,11 @@ public class GameplayCoinView : CoinView
         int index = 0;
         while (index < _coinImages.Count)
         {
-            yield return new WaitForSeconds(.25f);
+            yield return new WaitForSeconds(.1f);
             _coinImages[index].SetMovePosition(_totalCoinImageTransform.position);
             index++;
         }
-        yield return new WaitForSeconds(.75f);
+        yield return new WaitForSeconds(.5f);
         OnCoinAnimationCompleted?.Invoke();
     }
 
