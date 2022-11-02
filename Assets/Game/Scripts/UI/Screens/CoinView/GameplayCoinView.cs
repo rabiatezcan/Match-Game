@@ -15,7 +15,7 @@ public class GameplayCoinView : CoinView
 
     public override void SetCoinText()
     {
-        _coinText.text = ScoreSystem.GetCurrentScore().ToString();
+        _coinText.text = (PlayerHelper.Instance.Player.Coin + ScoreSystem.GetCurrentScore()).ToString();
     }
     public void Initialize()
     {
