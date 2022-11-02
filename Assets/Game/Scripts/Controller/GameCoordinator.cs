@@ -16,12 +16,12 @@ public class GameCoordinator : Controller
 
     public override void Reload()
     {
+        RecipeCompleteCheckHelper.Reload();
     }
 
     public override void StartGame()
     {
         ScoreSystem.Reload();
-        RecipeCompleteCheckHelper.Reload();
         _timeHandler.StartGame();   
     }
     public override void GameFail()
@@ -31,6 +31,7 @@ public class GameCoordinator : Controller
 
     public override void GameSuccess()
     {
+        RecipeCompleteCheckHelper.Reload();
         _timeHandler.GameOver();
     }
 

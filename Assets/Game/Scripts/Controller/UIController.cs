@@ -63,6 +63,7 @@ public class UIController : Controller
     public void ShowLoseScreen()
     {
         HideAll();
+        _screens[3].GetComponent<EndScreen>().Initialize(_levelController);
         _screens[3].Show();
         _screens[3].GetComponent<EndScreen>().ShowLosePage();
     }

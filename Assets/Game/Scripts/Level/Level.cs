@@ -24,7 +24,11 @@ public class Level : MonoBehaviour
     {
         get => _currentRecipe;
     }
-    public float LevelTimeForSecond => _levelTimeForSecond;
+    public float LevelTimeForSecond
+    {
+        get => _levelTimeForSecond;
+        set => _levelTimeForSecond = value;
+    } 
 
     public void Build()
     {
@@ -85,6 +89,7 @@ public class Level : MonoBehaviour
         {
             obj.SetPosition(GetRandomPosition());
             obj.IsRecipeElement = _currentRecipe.RecipeList.ContainsKey(obj.BodyType);
+            obj.CanMove = true;
         });
     }
     private Vector3 GetRandomPosition()
