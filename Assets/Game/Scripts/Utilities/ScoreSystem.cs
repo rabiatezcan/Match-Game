@@ -26,6 +26,6 @@ public static class ScoreSystem
     }
     public static void Reload()
     {
-        _currentScore = PlayerHelper.Instance.Player.Coin; 
+        _currentScore = 0; 
     }
 }
