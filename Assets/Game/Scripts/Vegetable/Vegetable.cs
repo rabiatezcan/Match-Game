@@ -29,6 +29,12 @@ public class Vegetable : PoolObject, ISelectableObject
         get => _bodyType;
         set => _bodyType = value;
     }
+    public bool CanMove 
+    {
+        get => _canMove; 
+        set => _canMove = value; 
+    }
+
 
     #region Core
     public void Initialize(GameEnums.VegetableType type, bool isRecipeElement)
