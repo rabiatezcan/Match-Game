@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class Pan : MonoBehaviour
 {
+	[SerializeField] ParticleSystem _smokeFX;
+	public void StartGame()
+	{
+		RecipeCompleteCheckHelper.OnRecipeCompleted += PlayFX;
+	}
+
+	public void GameOver()
+	{
+        RecipeCompleteCheckHelper.OnRecipeCompleted -= PlayFX;
+    }
+
+    private void PlayFX()
+	{
+		_smokeFX.Play();
+	}
 
 	#region TriggerBehaviour
 	public void TriggerEnterBehaviour(Collider other)

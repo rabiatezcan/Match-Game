@@ -22,17 +22,20 @@ public class GameCoordinator : Controller
     public override void StartGame()
     {
         ScoreSystem.Reload();
-        _timeHandler.StartGame();   
+        _timeHandler.StartGame();
+        _pan.StartGame();
     }
     public override void GameFail()
     {
         _timeHandler.GameOver();
+        _pan.GameOver();
     }
 
     public override void GameSuccess()
     {
         RecipeCompleteCheckHelper.Reload();
         _timeHandler.GameOver();
+        _pan.GameOver();
     }
 
     #endregion
