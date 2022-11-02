@@ -1184,7 +1184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1801524787035939093
 Transform:
   m_ObjectHideFlags: 0
@@ -4110,6 +4110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5296014681286482323}
   - component: {fileID: 5296014681286482322}
+  - component: {fileID: 4507202782051606255}
   m_Layer: 6
   m_Name: 'Vegetable '
   m_TagString: Vegetable
@@ -4147,6 +4148,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _clampSetting: {fileID: 11400000, guid: 2b39239f82f9eaf49b7afb05534a04f4, type: 2}
   _body: {fileID: 5296014682383788115}
+  _rigidbody: {fileID: 4507202782051606255}
+--- !u!54 &4507202782051606255
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5296014681286482320}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 84
+  m_CollisionDetection: 1
 --- !u!1 &5296014682325156611
 GameObject:
   m_ObjectHideFlags: 0
@@ -4156,7 +4174,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5296014682325156610}
-  - component: {fileID: 74275652001694681}
   - component: {fileID: 7544867633160098617}
   m_Layer: 6
   m_Name: Physic
@@ -4179,22 +4196,6 @@ Transform:
   m_Father: {fileID: 5296014681286482323}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &74275652001694681
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5296014682325156611}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &7544867633160098617
 BoxCollider:
   m_ObjectHideFlags: 0

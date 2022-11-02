@@ -8,12 +8,16 @@ public class Vegetable : PoolObject, ISelectableObject
 {
     [SerializeField] private ObjectClampSettings _clampSetting;
     [SerializeField] private VegetableBody _body;
+    [SerializeField] private Rigidbody _rigidbody;
 
     private GameEnums.ClickType _currentClickType;
     private GameEnums.VegetableType _bodyType;
+
     private bool _canMove;
     private bool _onPanArea;
     private bool _isRecipeElement;
+
+    #region Properties
     public bool OnPanArea
     {
         get => _onPanArea;
@@ -29,12 +33,12 @@ public class Vegetable : PoolObject, ISelectableObject
         get => _bodyType;
         set => _bodyType = value;
     }
-    public bool CanMove 
+    public bool CanMove
     {
-        get => _canMove; 
-        set => _canMove = value; 
+        get => _canMove;
+        set => _canMove = value;
     }
-
+    #endregion
 
     #region Core
     public void Initialize(GameEnums.VegetableType type, bool isRecipeElement)
@@ -64,7 +68,8 @@ public class Vegetable : PoolObject, ISelectableObject
         inputPos.z -= .63f;
         inputPos.z = Mathf.Clamp(inputPos.z, _clampSetting.MinZ, _clampSetting.MaxZ);
         inputPos.y = 0f;
-        transform.position = inputPos;
+
+        _rigidbody.MovePosition(inputPos);
     }
 
     public void Drop()
@@ -81,7 +86,7 @@ public class Vegetable : PoolObject, ISelectableObject
 
     private void JumpAnimation(Vector3 jumpPos, Ease ease)
     {
-        transform.DOJump(jumpPos, 15f, 1, .5f).SetEase(ease)
+        _rigidbody.DOJump(jumpPos, 15f, 1, .5f).SetEase(ease)
                  .OnComplete(() => CheckPlacement());
     }
 
