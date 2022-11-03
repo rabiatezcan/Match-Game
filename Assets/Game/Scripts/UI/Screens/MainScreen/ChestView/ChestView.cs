@@ -54,6 +54,9 @@ public class ChestView : MonoBehaviour
 
     private void TreasureAnimation()
     {
+        if (!_chestButton.IsInteractable())
+            return;
+
         Sequence sequence = DOTween.Sequence();
         sequence.Append(_treasureTransform.DOScale(1f, .2f))
                 .Append(_treasureTransform.DOScale(0f, .4f).SetDelay(.5f));
