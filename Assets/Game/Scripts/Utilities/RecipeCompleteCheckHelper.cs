@@ -20,6 +20,16 @@ public static class RecipeCompleteCheckHelper
         SetRecipeVegetables();
     }
 
+    public static void ListenRecipe()
+    {
+        _levelController.CurrentLevel.OnRecipeChanged += UpdateRecipe;
+    }
+
+    public static void StopListenRecipe()
+    {
+        _levelController.CurrentLevel.OnRecipeChanged -= UpdateRecipe;
+    }
+
     public static void Reload()
     {
         UpdateRecipe();
