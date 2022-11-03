@@ -10581,5 +10581,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pan
       objectReference: {fileID: 0}
+    - target: {fileID: 9182285062543251495, guid: 2c137ba40ce92be45b2bfd35bca3fdae, type: 3}
+      propertyPath: lengthInSec
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182285062543251495, guid: 2c137ba40ce92be45b2bfd35bca3fdae, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182285062543251495, guid: 2c137ba40ce92be45b2bfd35bca3fdae, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c137ba40ce92be45b2bfd35bca3fdae, type: 3}
